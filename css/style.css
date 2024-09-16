@@ -1,0 +1,134 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    width: 100vh;
+}
+.header {   
+    padding-bottom: 20px;
+    color: #212121;
+}
+#form-container {
+    background-color: #eceff1;
+    color: #212121;
+    width: 450px;
+    padding: 20px;
+    padding-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+
+    /* Center the form container*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+input, textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid white;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#message {
+    height: 70px;
+}
+
+.form-group-message {
+    margin-bottom: 16px;
+    height: 100px;
+}
+
+#submit {
+    background-color: #212121;
+    color: white;
+    font-weight: bold;
+    width: 50%;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+#submit:hover {
+    background-color: #212121;
+    opacity: 0.8;
+}
+
+#reset {
+    background-color: #ff3d00;
+    color: white;
+    font-weight: bold;
+    width: 50%;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#reset:hover {
+    background-color: #ff3d00;
+    opacity: 0.8;
+}
+
+#cancel {
+    background-color: #ff3d00;
+    color: white;
+    font-weight: bold;
+    width: 50%;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#cancel:hover {
+    background-color: #ff3d00;
+    opacity: 0.8;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+    }
+    body{
+        padding-bottom: 60px; /* Add space at the bottom to prevent overlap */
+    }
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 15px;
+    }
+}
