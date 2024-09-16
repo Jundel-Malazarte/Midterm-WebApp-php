@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include "db_connect.php";
 
 $error_msg = "";
@@ -13,6 +14,23 @@ if (isset($_POST['submit'])) {
     // Check for duplicate ID
     $check_sql = "SELECT * FROM `users` WHERE user_id = '$user_ID'";
     $check_result = mysqli_query($conn, $check_sql);
+=======
+    include "db_connect.php";
+    
+    $error_msg = "";
+
+    if (isset($_POST['submit'])) {
+        $user_ID = $_POST['user_ID'];
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        $created_at = $_POST['created_at'];
+    }
+
+    // Check for duplicate ID
+    $check_sql = "SELECT * FROM `users` WHERE id = $user_ID";
+    $check_result = mysqli_query($check_sql);
+>>>>>>> 41f3175f2ad80c81e1fe86c232b62c64bae46151
 
     if (mysqli_num_rows($check_result) > 0) {
         $error_msg = "Error: Duplicate Employee ID. This ID already exists.";
@@ -20,6 +38,7 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO `users` (`user_id`, `name`, `email`, `message`, `created_at`) 
         VALUES ('$user_ID', '$name', '$email', '$message', '$created_at')";
 
+<<<<<<< HEAD
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
@@ -30,6 +49,16 @@ if (isset($_POST['submit'])) {
         }
     }
 }
+=======
+        $result = mysqli_query($check_result);
+
+        if ($result) {
+            header("Location: \display_users.php?msg=Successfully added!");
+        } else {
+            $error_msg = "Failed: " . mysqli_error($conn);
+         }
+    }
+>>>>>>> 41f3175f2ad80c81e1fe86c232b62c64bae46151
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +70,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="./css/display.css">
 </head>
+<<<<<<< HEAD
 <body>
     <!-- message alert -->
     <div class="container">
@@ -48,13 +78,28 @@ if (isset($_POST['submit'])) {
         if (isset($_GET["msg"])) {
             $msg = $_GET["msg"];
             echo '<div class="alert">' . $msg . ' 
+=======
+    <body>
+    <!-- message alert -->
+    <div class="container">
+        <?php 
+        if(isset($_GET["msg"])) {
+            $msg = $_GET["msg"];
+            echo '<div class="alert">
+            ' . $msg . ' 
+>>>>>>> 41f3175f2ad80c81e1fe86c232b62c64bae46151
                 <button type="button" class="close-btn">&times;</button>
             </div>';
         }
         ?>
 
+<<<<<<< HEAD
         <div id="table-container">
             <table class="table">
+=======
+        <div class="table-container">
+            <table class="Table">
+>>>>>>> 41f3175f2ad80c81e1fe86c232b62c64bae46151
                 <thead>
                     <tr>
                         <th>User ID</th>
@@ -62,11 +107,16 @@ if (isset($_POST['submit'])) {
                         <th>Email</th>
                         <th>Message</th>
                         <th>Created At</th>
+<<<<<<< HEAD
                         <th>Action</th>
+=======
+                        <<th>Action</th>
+>>>>>>> 41f3175f2ad80c81e1fe86c232b62c64bae46151
                     </tr>
                 </thead>
                 <tbody>
                 <?php 
+<<<<<<< HEAD
                     // Retrieve the records to display in the table
                     $sql = "SELECT * FROM users";
                     $result = mysqli_query($conn, $sql);
@@ -106,6 +156,24 @@ if (isset($_POST['submit'])) {
                 ?>
                 </tbody>
             </table>
+=======
+                    while($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                        <tr>
+                            <td><?php echo $row['user_ID']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
+                            <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['message']; ?></td>
+                            <td><?php echo $row['created_at']; ?></td>
+                                <td>
+                                <a href="delete.php?id=<?php echo $row["user_ID"]; ?>" class="action-link"><i class="fa-solid fa-trash"></i>Delete</a> 
+                                </td>
+                        </tr>
+                </tbody>
+
+            </table>
+
+>>>>>>> 41f3175f2ad80c81e1fe86c232b62c64bae46151
         </div>
 
         <script>
@@ -119,7 +187,14 @@ if (isset($_POST['submit'])) {
                 });
             });
         });
+<<<<<<< HEAD
         </script>
     </div>
 </body>
 </html>
+=======
+    </script>
+    
+    </body>
+</html>
+>>>>>>> 41f3175f2ad80c81e1fe86c232b62c64bae46151
